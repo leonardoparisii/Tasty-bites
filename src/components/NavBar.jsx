@@ -1,35 +1,106 @@
 import React, { useState, useEffect } from "react";
-import Logo from "../assets/Logo.svg";
 import HomeLogo from "../assets/HomeLogo.svg";
 import styled from "@emotion/styled";
 import { useLocation } from "react-router-dom";
 import { NavLink, Link } from "react-router-dom";
+import { Turn as Hamburger } from "hamburger-react";
+import FullScreenSideBar from "./FullScreenSideBar";
 
 function NavBar() {
   const location = useLocation();
 
+  const [isMenuOpen, setMenuOpen] = useState(false);
+
+  function toggleHamburger() {
+    setMenuOpen(!isMenuOpen);
+  }
+
   return (
-    <div className="flex flex-col justify-center items-center mt-3">
-      <LogoContainer>
-        <Link to="/discover">
-          <Img path={location.pathname} src={HomeLogo} alt="Logo" />
-        </Link>
-        <H1>Spoonacular Api Project</H1>
-      </LogoContainer>
-      <div className="flex flex-wrap gap-4">
-        <StyledLinks to="/cuisine/Italian">
-          <H1>Italian</H1>
-        </StyledLinks>
-        <StyledLinks to="/cuisine/Thai">
-          <H1>Thai</H1>
-        </StyledLinks>
-        <StyledLinks to="/cuisine/Japanese">
-          <H1>Japanese</H1>
-        </StyledLinks>
-        <StyledLinks to="/cuisine/American">
-          <H1>American</H1>
-        </StyledLinks>
+    <div className="w-[90%] mx-auto mt-6 flex flex-col  justify-between items-center sm:flex sm:flex-col sm:justify-center sm:mt-3 relative ">
+      <div className="flex sm:flex-col justify-between w-full items-center">
+        <LogoContainer>
+          <Link
+            to="/discover"
+            className="z-50"
+            onClick={isMenuOpen ? toggleHamburger : null}
+          >
+            <Img path={location.pathname} src={HomeLogo} alt="Logo" />
+          </Link>
+          <h1 className="hidden sm:text-4xl sm:font-inter sm:text-slate-50 sm:font-medium sm:m-0 sm:block">
+            TastyBites
+          </h1>
+        </LogoContainer>
+        <BtnWrap className="hidden sm:flex sm:flex-wrap sm:gap-4 sm:mt-2">
+          <StyledLinks to="/cuisine/Italian">
+            <h1 className="text-2xl font-satoshi text-slate-50 font-medium m-0">
+              Italian
+            </h1>
+          </StyledLinks>
+          <StyledLinks to="/cuisine/Thai">
+            <h1 className="text-2xl font-satoshi text-slate-50 font-medium m-0">
+              Thai
+            </h1>
+          </StyledLinks>
+          <StyledLinks to="/cuisine/Japanese">
+            <h1 className="text-2xl font-satoshi text-slate-50 font-medium m-0">
+              Japanese
+            </h1>
+          </StyledLinks>
+          <StyledLinks to="/cuisine/American">
+            <h1 className="text-2xl font-satoshi text-slate-50 font-medium m-0">
+              American
+            </h1>
+          </StyledLinks>
+          <div className="flex items-center w-[45px] h-[45px] sm:hidden"></div>
+        </BtnWrap>
+        <div className="block sm:hidden z-50">
+          <Hamburger
+            size={22}
+            duration={0.8}
+            color="#FFF"
+            toggled={isMenuOpen}
+            toggle={toggleHamburger}
+          />
+        </div>
       </div>
+      {isMenuOpen && (
+        <FullScreenSideBar>
+          <div className="flex flex-col bg-zinc-900 p-3 box-border gap-3 absolute w-screen m-auto">
+            <DropNavLink
+              to="/cuisine/Italian"
+              onClick={() => setMenuOpen(!isMenuOpen)}
+            >
+              <h1 className="text-2xl transition-all font-satoshi text-slate-50 font-medium m-0">
+                Italian
+              </h1>
+            </DropNavLink>
+            <DropNavLink
+              to="/cuisine/Thai"
+              onClick={() => setMenuOpen(!isMenuOpen)}
+            >
+              <h1 className="text-2xl transition-all font-satoshi text-slate-50 font-medium m-0">
+                Thai
+              </h1>
+            </DropNavLink>
+            <DropNavLink
+              to="/cuisine/Japanese"
+              onClick={() => setMenuOpen(!isMenuOpen)}
+            >
+              <h1 className="text-2xl transition-all font-satoshi text-slate-50 font-medium m-0">
+                Japanese
+              </h1>
+            </DropNavLink>
+            <DropNavLink
+              to="/cuisine/American"
+              onClick={() => setMenuOpen(!isMenuOpen)}
+            >
+              <h1 className="text-2xl transition-all font-satoshi text-slate-50 font-medium m-0">
+                American
+              </h1>
+            </DropNavLink>
+          </div>
+        </FullScreenSideBar>
+      )}
     </div>
   );
 }
@@ -62,9 +133,6 @@ const StyledLinks = styled(NavLink)`
   &.active {
     background-color: rgba(80, 63, 205, 0.7);
   }
-  H1 {
-    font-size: 22px;
-  }
 `;
 const Img = styled.img`
   width: 120px;
@@ -72,18 +140,24 @@ const Img = styled.img`
   filter: ${(props) => props.path !== "/discover" && "grayscale(0.7)"};
 `;
 
+const BtnWrap = styled.div`
+  @media (max-width: 640px) {
+    h1,
+    a {
+      display: none;
+    }
+  }
+`;
+
 const LogoContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 0 0 15px 0;
 `;
-const H1 = styled.h1`
-  font-size: 36px;
-  font-family: "Satoshi";
-  font-weight: 500;
-  margin: 0;
-  color: #f1f1f1;
+
+const DropNavLink = styled(NavLink)`
+  display: flex;
+  justify-content: center;
 `;
 export default NavBar;

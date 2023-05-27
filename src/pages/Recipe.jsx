@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 function Recipe() {
   const params = useParams();
   const [details, setDetails] = useState({});
+  const [showExtended, setShowExtended] = useState(false);
   const [activeSection, setActiveSection] = useState("instructions");
 
   const fetchDetails = async () => {
@@ -21,6 +22,11 @@ function Recipe() {
   useEffect(() => {
     console.log(details.extendedIngredients);
   }, []);
+
+  useEffect(() => {
+    setShowExtended(false);
+  }, []);
+  console.log(details.extendedIngredients);
   return (
     <Wrapper>
       <H1>{details.title ? details.title : "Loading..."}</H1>
@@ -98,6 +104,10 @@ const Img = styled.image`
   &&:hover {
     box-shadow: rgba(80, 63, 205, 0.5) 0 1px 30px;
     transition-duration: 0.1s;
+  }
+  @media only screen and (max-width: 740px) {
+    height: 300px;
+    width: 90%;
   }
 `;
 

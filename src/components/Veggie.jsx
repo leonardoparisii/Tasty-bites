@@ -29,13 +29,12 @@ function Veggie() {
   return (
     <Wrapper>
       <H1>Popular vegetarian recipes</H1>
-      <StyledSplide
+      <Splide
         options={{
           perPage: 4,
-          arrows: true,
+          arrows: false,
           pagination: false,
           perMove: 1,
-          gap: "0em",
           drag: "free",
           type: "loop",
           rewind: true,
@@ -44,16 +43,18 @@ function Veggie() {
             1275: {
               perPage: 2,
             },
-            735: {
+            768: {
               perPage: 1,
-              drag: false,
+              arrows: false,
+              drag: true,
             },
           },
         }}
+        className="\md:p-12 rounded-2xl md:w-100% w-352px"
       >
         {veggie.map((recipe) => {
           return (
-            <SplideContainer key={`Splide_ ${recipe.id}`}>
+            <SplideContainer key={`Splide_ ${recipe.id}`} className="w-352px">
               <StyledLinks to={`/recipe/${recipe.id}`}>
                 <Card
                   key={recipe.id}
@@ -66,7 +67,7 @@ function Veggie() {
             </SplideContainer>
           );
         })}
-      </StyledSplide>
+      </Splide>
     </Wrapper>
   );
 }
@@ -77,14 +78,8 @@ const Wrapper = styled.div`
   flex-direction: column;
   width: 100%;
   max-width: 1485px;
-  padding: 15px;
-  box-sizing: border-box;
 `;
 
-const StyledSplide = styled(Splide)`
-  border-radius: 15px;
-  padding: 50px;
-`;
 const H1 = styled.h1`
   font-size: 34px;
   font-weight: 700;
@@ -92,6 +87,12 @@ const H1 = styled.h1`
   font-family: "Satoshi";
   width: fit-content;
   margin: 0 auto;
+  @media screen and (max-width: 430px) {
+    font-size: 28px;
+  }
+  @media screen and (max-width: 350px) {
+    font-size: 24px;
+  }
 `;
 
 const StyledLinks = styled(Link)`

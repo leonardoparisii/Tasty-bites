@@ -27,9 +27,9 @@ function Popular() {
   };
 
   return (
-    <div className="flex flex-col items-center my-6">
+    <div className="m-auto max-w-[1485px] md:flex md:flex-col md:items-center md:my-6 -z-20">
       <Veggie />
-      <h1 className="text-4xl font-bold text-slate-100 font-satoshi m-0">
+      <h1 className="m-auto w-fit text-4xl font-bold text-slate-100 font-satoshi">
         Popular recipes
       </h1>
       <div className="box-border w-fit max-w-[1485px] flex flex-wrap justify-center gap-6 mt-6">

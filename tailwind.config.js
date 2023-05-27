@@ -15,6 +15,7 @@ export default {
     },
     fontFamily: {
         'satoshi': 'Satoshi',
+        'inter': 'Inter',
       }
   },
   plugins: [],

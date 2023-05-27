@@ -11,7 +11,6 @@ function Card(props) {
     <>
       {props.veggie ? (
         <VeggieCardContainer
-          margin={true}
           image={props.image}
           className="bg-cover flex items-end p-[14px] left-40 rounded-2xl h-[340px] w-[280px] box-border transition-shadow duration-1000 ease-out hover:shadow-3xl hover:duration-100"
         >
@@ -20,10 +19,7 @@ function Card(props) {
           </h1>
         </VeggieCardContainer>
       ) : (
-        <div
-          margin={false}
-          className="flex flex-col justify-center w-[22rem] h-[290px] box-border p-[14px] rounded-2xl bg-transparent transition-shadow duration-1000 ease-out hover:shadow-3xl hover:duration-100"
-        >
+        <div className="flex flex-col justify-center w-[22rem] h-[290px] box-border p-[14px] rounded-2xl bg-transparent transition-shadow duration-1000 ease-out hover:shadow-3xl hover:duration-100">
           <ImgContainer
             image={props.image}
             className="w-full m-auto h-[175px] min-h-[70%] bg-cover object-cover rounded-2xl"
@@ -52,6 +48,9 @@ function Card(props) {
 //styling
 const VeggieCardContainer = styled.div`
   background: url(${(props) => props.image});
+  @media screen and (max-width: 768px) {
+    width: 340px;
+  }
 `;
 
 const ImgContainer = styled.div`
