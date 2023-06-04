@@ -5,8 +5,8 @@ import { useParams } from "react-router-dom";
 function Recipe() {
   const params = useParams();
   const [details, setDetails] = useState({});
-  const [showExtended, setShowExtended] = useState(false);
   const [activeSection, setActiveSection] = useState("instructions");
+  const [showText, setShowText] = useState(false)
 
   const fetchDetails = async () => {
     const data = await fetch(
@@ -23,10 +23,7 @@ function Recipe() {
     console.log(details.extendedIngredients);
   }, []);
 
-  useEffect(() => {
-    setShowExtended(false);
-  }, []);
-  console.log(details.extendedIngredients);
+
   return (
     <Wrapper>
       <H1>{details.title ? details.title : "Loading..."}</H1>
@@ -49,10 +46,37 @@ function Recipe() {
           </Buttons>
           {activeSection === "instructions" && (
             <InfoContainer>
-              <h3 dangerouslySetInnerHTML={{ __html: details.summary }}></h3>
+            <div className="flex flex-col mb-2 gap-4 items-center">
+              <h2>Summary</h2>
+              <h3 dangerouslySetInnerHTML={{ __html: details.summary }} 
+              className={showText === 'showSummary' ? '' : 'line-clamp-3'}
+              >
+              </h3>
+              <button 
+              className="bg-white hover:bg-gray-100
+               text-gray-800 font-semibold py-2 px-4
+               border border-gray-400 rounded shadow font-satoshi"
+               onClick={() => setShowText(showText !== 'showSummary' ? 'showSummary' : false)}
+               >
+                {showText !== 'showSummary' ? 'Show More' : 'Show Less'}
+                </button>
+            </div> 
+            <div className="flex flex-col gap-4 items-center">
+              <h2>Instructions</h2>
               <h3
                 dangerouslySetInnerHTML={{ __html: details.instructions }}
-              ></h3>
+                className={showText === 'showInstructions' ? '' : 'line-clamp-3'}
+              >
+              </h3>
+              <button 
+              className="bg-white hover:bg-gray-100
+               text-gray-800 font-semibold py-2 px-4
+               border border-gray-400 rounded shadow font-satoshi"
+               onClick={() => setShowText(showText !== 'showInstructions' ? 'showInstructions' : false)}
+               >
+                {showText !== 'showInstructions' ? 'Show More' : 'Show Less'}
+                </button> 
+            </div>
             </InfoContainer>
           )}
           {activeSection === "ingredients" && (
@@ -157,6 +181,13 @@ const InfoContainer = styled.div`
       color: rgba(218, 208, 208, 0.7);
       font-style: normal;
     }
+  }
+  h2{
+    margin: 0;
+    font-size: 24px;
+    font-weight: 400;
+    color: #f1f1f1;
+    font-family: "Satoshi";
   }
 `;
 

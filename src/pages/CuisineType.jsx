@@ -14,7 +14,7 @@ function CuisineType() {
       `https://api.spoonacular.com/recipes/complexSearch?apiKey=634c1e814b0f4107baf9181fde33b0ec&number=8&cuisine=${name}`
     );
     const recipes = await data.json();
-    setCuisine(recipes.results);
+    setCuisine(recipes.results);    
   };
 
   useEffect(() => {

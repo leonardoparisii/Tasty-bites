@@ -12,11 +12,11 @@ function NavBar() {
   const [isMenuOpen, setMenuOpen] = useState(false);
 
   function toggleHamburger() {
-    setMenuOpen(!isMenuOpen);
+      setMenuOpen(!isMenuOpen);
   }
 
   return (
-    <div className="w-[90%] mx-auto mt-6 flex flex-col  justify-between items-center sm:flex sm:flex-col sm:justify-center sm:mt-3 relative ">
+    <div className="w-[90%] mx-auto mt-6 flex flex-col  justify-between items-center sm:flex sm:flex-col sm:justify-center sm:mt-3 relative z-50">
       <div className="flex sm:flex-col justify-between w-full items-center">
         <LogoContainer>
           <Link
@@ -56,7 +56,7 @@ function NavBar() {
         <div className="block sm:hidden z-50">
           <Hamburger
             size={22}
-            duration={0.8}
+            duration={0.5}
             color="#FFF"
             toggled={isMenuOpen}
             toggle={toggleHamburger}
@@ -65,7 +65,7 @@ function NavBar() {
       </div>
       {isMenuOpen && (
         <FullScreenSideBar>
-          <div className="flex flex-col bg-zinc-900 p-3 box-border gap-3 absolute w-screen m-auto">
+          <div className="flex flex-col bg-zinc-900 p-3 box-border gap-3 absolute w-full m-auto">
             <DropNavLink
               to="/cuisine/Italian"
               onClick={() => setMenuOpen(!isMenuOpen)}
