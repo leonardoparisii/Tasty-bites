@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import Card from "./Card";
-import Veggie from "./Veggie.jsx";
 import { Link } from "react-router-dom";
 
 function Popular() {
@@ -27,8 +26,7 @@ function Popular() {
   };
 
   return (
-    <div className="m-auto max-w-[1485px] md:flex md:flex-col md:items-center md:my-6 -z-20">
-      <Veggie />
+    <div className="m-auto max-w-[1485px] md:flex md:flex-col md:items-center md:my-6 md:mt-12 -z-20">
       <h1 className="m-auto w-fit text-4xl font-bold text-slate-100 font-satoshi">
         Popular recipes
       </h1>

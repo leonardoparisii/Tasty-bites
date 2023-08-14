@@ -1,0 +1,20 @@
+{
+     "categories" : [
+        {
+        "title": "Italian",
+        "url": "/cuisine/Italian"
+        },
+        {
+        "title": "Thai",
+        "url": "/cuisine/Thai"
+        },
+        {
+        "title": "Japanese",
+        "url": "/cuisine/Japanese"
+        },
+        {
+        "title": "American",
+        "url": "/cuisine/American"
+        }
+    ]
+}

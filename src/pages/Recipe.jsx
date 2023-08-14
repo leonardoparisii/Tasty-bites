@@ -6,7 +6,7 @@ function Recipe() {
   const params = useParams();
   const [details, setDetails] = useState({});
   const [activeSection, setActiveSection] = useState("instructions");
-  const [showText, setShowText] = useState(false)
+  const [showText, setShowText] = useState(false);
 
   const fetchDetails = async () => {
     const data = await fetch(
@@ -22,7 +22,6 @@ function Recipe() {
   useEffect(() => {
     console.log(details.extendedIngredients);
   }, []);
-
 
   return (
     <Wrapper>
@@ -46,37 +45,48 @@ function Recipe() {
           </Buttons>
           {activeSection === "instructions" && (
             <InfoContainer>
-            <div className="flex flex-col mb-2 gap-4 items-center">
-              <h2>Summary</h2>
-              <h3 dangerouslySetInnerHTML={{ __html: details.summary }} 
-              className={showText === 'showSummary' ? '' : 'line-clamp-3'}
-              >
-              </h3>
-              <button 
-              className="bg-white hover:bg-gray-100
+              <div className="flex flex-col mb-2 gap-4 items-center">
+                <h2>Summary</h2>
+                <h3
+                  dangerouslySetInnerHTML={{ __html: details.summary }}
+                  className={showText === "showSummary" ? "" : "line-clamp-3"}
+                ></h3>
+                <button
+                  className="bg-white hover:bg-gray-100
                text-gray-800 font-semibold py-2 px-4
                border border-gray-400 rounded shadow font-satoshi"
-               onClick={() => setShowText(showText !== 'showSummary' ? 'showSummary' : false)}
-               >
-                {showText !== 'showSummary' ? 'Show More' : 'Show Less'}
+                  onClick={() =>
+                    setShowText(
+                      showText !== "showSummary" ? "showSummary" : false
+                    )
+                  }
+                >
+                  {showText !== "showSummary" ? "Show More" : "Show Less"}
                 </button>
-            </div> 
-            <div className="flex flex-col gap-4 items-center">
-              <h2>Instructions</h2>
-              <h3
-                dangerouslySetInnerHTML={{ __html: details.instructions }}
-                className={showText === 'showInstructions' ? '' : 'line-clamp-3'}
-              >
-              </h3>
-              <button 
-              className="bg-white hover:bg-gray-100
+              </div>
+              <div className="flex flex-col gap-4 items-center">
+                <h2>Instructions</h2>
+                <h3
+                  dangerouslySetInnerHTML={{ __html: details.instructions }}
+                  className={
+                    showText === "showInstructions" ? "" : "line-clamp-3"
+                  }
+                ></h3>
+                <button
+                  className="bg-white hover:bg-gray-100
                text-gray-800 font-semibold py-2 px-4
                border border-gray-400 rounded shadow font-satoshi"
-               onClick={() => setShowText(showText !== 'showInstructions' ? 'showInstructions' : false)}
-               >
-                {showText !== 'showInstructions' ? 'Show More' : 'Show Less'}
-                </button> 
-            </div>
+                  onClick={() =>
+                    setShowText(
+                      showText !== "showInstructions"
+                        ? "showInstructions"
+                        : false
+                    )
+                  }
+                >
+                  {showText !== "showInstructions" ? "Show More" : "Show Less"}
+                </button>
+              </div>
             </InfoContainer>
           )}
           {activeSection === "ingredients" && (
@@ -182,7 +192,7 @@ const InfoContainer = styled.div`
       font-style: normal;
     }
   }
-  h2{
+  h2 {
     margin: 0;
     font-size: 24px;
     font-weight: 400;
