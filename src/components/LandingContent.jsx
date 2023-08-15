@@ -2,25 +2,31 @@ import LandingPhoto from "../assets/landing-image.svg";
 import Searchbar from "./Searchbar";
 import ProfilePic from "../assets/FeedbackProfilePic.png";
 import { AiFillStar } from "react-icons/ai";
-import Popular from "./Popular";
-import Veggie from "./Veggie";
-import { useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import popularLogo from "../assets/popular-category.jpg";
 import veggieLogo from "../assets/veggie-category.jpg";
+import VeganLogo from "../assets/vegan-category.jpg";
+import Category from './Category'
 
 const LandingContent = () => {
-  const [category, setCategory] = useState("default");
+  const navigate = useNavigate();
+  const params = useParams();
 
   const categories = [
     {
-      title: "Popular",
-      onclick: () => setCategory("Popular"),
+      title: "popular",
+      onclick: () => navigate(`/discover/popular`),
       img: popularLogo,
     },
     {
-      title: "Veggie",
-      onclick: () => setCategory("Veggie"),
+      title: "vegetarian",
+      onclick: () => navigate(`/discover/vegetarian`),
       img: veggieLogo,
+    },
+    {
+      title: "vegan",
+      onclick: () => navigate(`/discover/vegan`),
+      img: VeganLogo,
     },
   ];
   return (
@@ -80,7 +86,7 @@ const LandingContent = () => {
           Categories{" "}
           <span
             className={`text-base text-stone-600 font-medium ${
-              category === "default" ? "block" : "hidden"
+              params.category === "default" ? "block" : "hidden"
             }`}
           >
             * select a category
@@ -97,12 +103,12 @@ const LandingContent = () => {
                 src={item.img}
                 alt="img"
                 draggable="false"
-                className={`${category == item.title ? "" : "grayscale-[60%]"}
+                className={`${params.category == item.title ? "" : "grayscale-[60%]"}
                     w-[140px] h-[140px] object-cover rounded-full`}
               />
               <h1
                 className={`${
-                  category == item.title
+                  params.category == item.title
                     ? "text-stone-900 font-semibold"
                     : "text-stone-600 font-medium"
                 } font-satoshi text-lg`}
@@ -114,10 +120,8 @@ const LandingContent = () => {
         </div>
       </div>
       <div className="flex flex-col items-center">
-        {category === "Popular" ? (
-          <Popular />
-        ) : category === "Veggie" ? (
-          <Veggie />
+        {params.category ? (
+          <Category />
         ) : null}
       </div>
     </div>

@@ -9,6 +9,7 @@ const Searchbar = (props) => {
     e.preventDefault();
     navigate(`/search/${input}`);
   };
+  
   return (
     <form
       onSubmit={handleSubmit}

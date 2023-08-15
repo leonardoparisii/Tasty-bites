@@ -11,6 +11,7 @@ function Pages() {
       <Routes>
         <Route path="*" element={<Navigate to="/discover" />} />
         <Route path="/discover" element={<LandingContent />} />
+        <Route path="/discover/:category" element={<LandingContent />} />
         <Route path="/cuisine/:type" element={<CuisineType />} />
         <Route path="/recipe/:id" element={<Recipe />} />
         <Route path="/search/:search" element={<Search />} />
