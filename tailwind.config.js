@@ -10,7 +10,7 @@ export default {
             '': "url('/img/hero-pattern.svg')",
           },
           boxShadow: {
-            '3xl': '0 1px 30px rgba(80, 63, 205, 0.5)',
+            'md': '5px 5px 5px 0 rgba(0, 00, 00, 0.25)',
           },
     },
     fontFamily: {

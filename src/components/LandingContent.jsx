@@ -6,7 +6,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import popularLogo from "../assets/popular-category.jpg";
 import veggieLogo from "../assets/veggie-category.jpg";
 import VeganLogo from "../assets/vegan-category.jpg";
-import Category from './Category'
+import LowCarbLogo from "../assets/low-carb-category.jpeg";
+import Category from "./Category";
 
 const LandingContent = () => {
   const navigate = useNavigate();
@@ -27,6 +28,11 @@ const LandingContent = () => {
       title: "vegan",
       onclick: () => navigate(`/discover/vegan`),
       img: VeganLogo,
+    },
+    {
+      title: "Low Carb",
+      onclick: () => navigate(`/discover/Low Carb`),
+      img: LowCarbLogo,
     },
   ];
   return (
@@ -103,7 +109,9 @@ const LandingContent = () => {
                 src={item.img}
                 alt="img"
                 draggable="false"
-                className={`${params.category == item.title ? "" : "grayscale-[60%]"}
+                className={`${
+                  params.category == item.title ? "" : "grayscale-[60%]"
+                }
                     w-[140px] h-[140px] object-cover rounded-full`}
               />
               <h1
@@ -120,9 +128,7 @@ const LandingContent = () => {
         </div>
       </div>
       <div className="flex flex-col items-center">
-        {params.category ? (
-          <Category />
-        ) : null}
+        {params.category ? <Category /> : null}
       </div>
     </div>
   );
