@@ -29,11 +29,11 @@ const LandingContent = () => {
       onclick: () => navigate(`/discover/vegan`),
       img: VeganLogo,
     },
-    {
-      title: "Low Carb",
-      onclick: () => navigate(`/discover/Low Carb`),
-      img: LowCarbLogo,
-    },
+    // {
+    //   title: "LowCarb",
+    //   onclick: () => navigate(`/discover/LowCarb`),
+    //   img: LowCarbLogo,
+    // },
   ];
   return (
     <div className="max-w-[1485px] w-[90%] mx-auto">
@@ -54,7 +54,7 @@ const LandingContent = () => {
             styles="w-[400px] sm:w-[400px] rounded-full bg-transparent border border-[#bebfbf] font-semibold p-5"
           />
         </div>
-        <div className="relative">
+        <div className="relative select-none">
           <div className="absolute bottom-0 right-0 flex backdrop-blur-3xl p-5 rounded-3xl bg-[rgba(225,225,225,0.4)] gap-4 shadow-md">
             <img
               src={ProfilePic}
@@ -92,7 +92,7 @@ const LandingContent = () => {
           Categories{" "}
           <span
             className={`text-base text-stone-600 font-medium ${
-              params.category === "default" ? "block" : "hidden"
+              !params.category ? "block" : "hidden"
             }`}
           >
             * select a category

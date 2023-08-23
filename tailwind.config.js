@@ -11,6 +11,7 @@ export default {
           },
           boxShadow: {
             'md': '5px 5px 5px 0 rgba(0, 00, 00, 0.25)',
+            'white-md': '0px 0px 10px 2px gray'
           },
     },
     fontFamily: {

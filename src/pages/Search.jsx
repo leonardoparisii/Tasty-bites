@@ -29,19 +29,14 @@ const Search = () => {
           </span>
         )}
       </h1>
-      <div className="box-border w-fit max-w-[1485px] flex flex-wrap justify-center gap-6 mt-6">
+      <div className="box-border w-fit max-w-[1485px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6 justify-center gap-6 mt-6">
         {searchedRecipes.map((recipe) => (
           <Link
             to={`/recipe/${recipe.id}`}
             key={recipe.id}
             className="no-underline flex justify-center"
           >
-            <Card
-              key={recipe.id}
-              header={recipe.title}
-              image={recipe.image}
-              margin="true"
-            />
+            <Card recipe={recipe} search />
           </Link>
         ))}
       </div>
