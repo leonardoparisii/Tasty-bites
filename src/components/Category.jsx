@@ -13,7 +13,7 @@ function CuisineType() {
     const apiUrl = await import.meta.env.VITE_API_URL;
     const response = await fetch(
       `https://api.spoonacular.com/recipes/random?apiKey=${apiUrl}&number=1${
-        category === "popular" ? "" : `&tags=${category}`
+        category === "popular" ? null : `&tags=${category}`
       }`
     );
 
