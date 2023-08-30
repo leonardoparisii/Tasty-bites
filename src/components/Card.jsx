@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 function Card({ recipe, search }) {
   return (
     <div
-      className={`w-full h-full flex flex-col justify-between rounded-2xl ${
-        search ? "" : "shadow-white-md"
+      className={`h-full flex flex-col justify-between rounded-2xl ${
+        search ? "w-[80%] mx-auto" : "shadow-white-md w-full"
       } `}
     >
       <div className="object-contain">
