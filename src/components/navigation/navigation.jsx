@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
-import Searchbar from "../Searchbar";
-import Github from "../assets/Github.svg";
-import Instagram from "../assets/Instagram.svg";
-import X from "../assets/X.svg";
+import Searchbar from "../../Searchbar";
+import Github from "../../assets/Github.svg";
+import Instagram from "../../assets/Instagram.svg";
+import X from "../../assets/X.svg";
 
 function Navigation() {
   const socialsIcons = [
