@@ -21,8 +21,8 @@ function CuisineType() {
     setCategory(recipes.recipes);
   };
   useEffect(() => {
-    const category = !params.category ? "popular" : params.category;
-    getCategory(category);
+    const categoryName = !params.category ? "popular" : params.category;
+    getCategory(categoryName);
     console.log(category);
   }, [params.category]);
 
