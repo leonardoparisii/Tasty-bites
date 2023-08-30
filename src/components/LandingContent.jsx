@@ -45,7 +45,7 @@ const LandingContent = () => {
           </p>
           <Searchbar
             placeholder="Start searching now"
-            styles="w-[400px] sm:w-[400px] rounded-full bg-transparent border border-[#bebfbf] font-semibold p-5"
+            styles="w-[275px] sm:w-[400px] rounded-full bg-transparent border border-[#bebfbf] font-semibold p-5"
           />
         </div>
         <div className="relative select-none">
@@ -68,7 +68,7 @@ const LandingContent = () => {
                   <AiFillStar size={15} alt="star" className="fill-[#ef8f1e]" />
                 </div>
               </div>
-              <p className="text-[#75807b] text-sm font-satoshi font-medium">
+              <p className="text-[#75807b] line-clamp-2 sm:line-clamp-none text-sm font-satoshi font-medium">
                 Simply delicious! This recipe is a game-changer. <br />
                 Easy to use, mouthwatering results! <br />A must-have for all
                 foodies!
@@ -106,7 +106,7 @@ const LandingContent = () => {
                 className={`${
                   params.category == item.title ? "" : "grayscale-[60%]"
                 }
-                    w-[140px] h-[140px] object-cover rounded-full`}
+                    sm:w-[140px] sm:h-[140px] w-[95px] h-[95px] object-cover rounded-full`}
               />
               <h1
                 className={`${
