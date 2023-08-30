@@ -3,6 +3,7 @@ import Card from "./Card";
 import { Link } from "react-router-dom";
 
 function Popular() {
+  const apiUrl = import.meta.env.VITE_API_URL;
   const [popular, setPopular] = useState([]);
 
   useEffect(() => {
@@ -16,7 +17,7 @@ function Popular() {
       setPopular(JSON.parse(check));
     } else {
       const api = await fetch(
-        `https://api.spoonacular.com/recipes/random?apiKey=${process.env.API_KEY}&number=16`
+        `https://api.spoonacular.com/recipes/random?apiKey=${apiUrl}&number=16`
       );
       const data = await api.json();
 

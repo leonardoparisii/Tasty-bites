@@ -3,13 +3,15 @@ import { Link, useParams } from "react-router-dom";
 import Card from "../components/Card";
 
 function CuisineType() {
+  const apiUrl = import.meta.env.VITE_API_URL;
+  console.log(import.meta.env.VITE_API_URL);
   const [cuisine, setCuisine] = useState([]);
 
   let params = useParams();
 
   const getCuisine = async (name) => {
     const data = await fetch(
-      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.API_KEY}&number=8&cuisine=${name}`
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiUrl}&number=8&cuisine=${name}`
     );
     const recipes = await data.json();
     setCuisine(recipes.results);

@@ -3,22 +3,19 @@ import { useParams } from "react-router-dom";
 import Card from "../components/Card";
 
 function CuisineType() {
+  const apiUrl = process.env.API_KEY;
   const [category, setCategory] = useState([]);
+  console.log(apiUrl);
 
   let params = useParams();
 
   const getCategory = async (category) => {
-    let apiUrl;
-
-    if (category === "LowCarb") {
-      apiUrl = `https://api.spoonacular.com/recipes/findByNutrients?minCarbs=10&maxCarbs=50&number=1`;
-    } else {
-      apiUrl = `https://api.spoonacular.com/recipes/random?apiKey=${
-        process.env.API_KEY
-      }&number=1${category === "popular" ? "" : `&tags=${category}`}`;
-    }
-
-    const response = await fetch(apiUrl);
+    const apiUrl = await import.meta.env.VITE_API_URL;
+    const response = await fetch(
+      `https://api.spoonacular.com/recipes/random?apiKey=${apiUrl}&number=1${
+        category === "popular" ? "" : `&tags=${category}`
+      }`
+    );
 
     const recipes = await response.json();
     setCategory(recipes.recipes);

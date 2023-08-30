@@ -6,7 +6,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import popularLogo from "../assets/popular-category.jpg";
 import veggieLogo from "../assets/veggie-category.jpg";
 import VeganLogo from "../assets/vegan-category.jpg";
-import LowCarbLogo from "../assets/low-carb-category.jpeg";
 import Category from "./Category";
 
 const LandingContent = () => {

@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import { BsCircle } from "react-icons/bs";
+
 function Recipe() {
   const location = useLocation();
+  const apiUrl = import.meta.env.VITE_API_URL;
   const params = useParams();
   const [details, setDetails] = useState({});
 
   const fetchDetails = async (id) => {
     const data = await fetch(
-      `https://api.spoonacular.com/recipes/${id}/information/?apiKey=${process.env.API_KEY}`
+      `https://api.spoonacular.com/recipes/${id}/information/?apiKey=${apiUrl}`
     );
 
     const dataDetails = await data.json();

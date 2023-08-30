@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import Card from "../components/Card";
 
 const Search = () => {
+  const apiUrl = import.meta.env.VITE_API_URL;
   const [searchedRecipes, setSearchedRecipes] = useState([]);
   let recipeInfo;
 
@@ -10,7 +11,7 @@ const Search = () => {
 
   const getSearchedContent = async (name) => {
     const data = await fetch(
-      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.API_KEY}&number=32&query=${name}`
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiUrl}&number=32&query=${name}`
     );
     const recipes = await data.json();
     setSearchedRecipes(recipes.results);
