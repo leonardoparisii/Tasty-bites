@@ -83,14 +83,7 @@ const LandingContent = () => {
       </div>
       <div className="flex flex-col gap-12 mt-14">
         <h1 className="font-satoshi text-3xl text-stone-900 font-semibold flex items-start gap-3">
-          Categories{" "}
-          <span
-            className={`text-base text-stone-600 font-medium ${
-              !params.category ? "block" : "hidden"
-            }`}
-          >
-            * select a category
-          </span>
+          Categories
         </h1>
         <div className="flex gap-8">
           {categories.map((item, index) => (
