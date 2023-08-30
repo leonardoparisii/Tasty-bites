@@ -30,7 +30,7 @@ function CuisineType() {
       <h1 className="text-4xl font-bold text-slate-100 font-satoshi m-0">
         {params.category}
       </h1>
-      <div className="box-border w-fit max-w-[1485px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6 justify-center gap-6 mt-6">
+      <div className="box-border w-fit max-w-[1485px] grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 2xl:grid-cols-6 justify-center gap-6 mt-6">
         {category.map((recipe) => {
           return <Card key={recipe.id} recipe={recipe} />;
         })}

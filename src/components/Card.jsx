@@ -31,7 +31,7 @@ function Card({ recipe, search }) {
         </h1>
         <p
           dangerouslySetInnerHTML={{ __html: recipe.summary }}
-          className="text-[#616161] text-base font-satoshi font-normal line-clamp-3"
+          className="text-[#616161] text-base font-satoshi font-normal line-clamp-2"
         ></p>
         <div
           className={`flex ${
