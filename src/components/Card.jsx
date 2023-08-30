@@ -41,7 +41,7 @@ function Card({ recipe, search }) {
           <Link
             to={`/recipe/${recipe.id}`}
             className={`p-2 h-fit ${
-              search ? "sm:w-full w-[70%] mx-auto" : ""
+              search ? "sm:w-full w-[85%] mx-auto" : ""
             }  flex justify-center items-center bg-[#098149] font-satoshi text-white rounded-md`}
           >
             View more
