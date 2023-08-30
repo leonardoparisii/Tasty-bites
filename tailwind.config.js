@@ -21,6 +21,7 @@ export default {
         'mulish': 'Mulish'
       },
       screens: {
+        'xsm': '560px',
         'sm': '730px',
         'md': '860px',
         'lg': '1024px',
