@@ -12,7 +12,7 @@ function Card({ recipe, search }) {
         <img
           src={recipe.image}
           alt="image"
-          className={`w-full ${search ? "roundewd-lg" : "rounded-t-2xl"}`}
+          className={`w-full ${search ? "rounded-lg" : "rounded-t-2xl"}`}
         />
       </div>
       <div
