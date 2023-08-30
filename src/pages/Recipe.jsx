@@ -101,7 +101,7 @@ function Recipe() {
             <p className="text-3xl">INGREDIENTS</p>
             <div className="h-[4px] w-[40%] rounded-2xl bg-[#F9BC42]"></div>
           </div>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {details.extendedIngredients
               ? details.extendedIngredients.map((ingredient, id) => (
                   <div
