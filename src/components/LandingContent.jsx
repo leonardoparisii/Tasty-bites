@@ -15,17 +15,17 @@ const LandingContent = () => {
   const categories = [
     {
       title: "popular",
-      onclick: () => navigate(`/discover/popular`),
+      onclick: () => navigate(`/popular`),
       img: popularLogo,
     },
     {
       title: "vegetarian",
-      onclick: () => navigate(`/discover/vegetarian`),
+      onclick: () => navigate(`/vegetarian`),
       img: veggieLogo,
     },
     {
       title: "vegan",
-      onclick: () => navigate(`/discover/vegan`),
+      onclick: () => navigate(`/vegan`),
       img: VeganLogo,
     },
   ];
