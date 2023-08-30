@@ -33,7 +33,7 @@ const LandingContent = () => {
     <div className="max-w-[1485px] w-[90%] mx-auto">
       <div className="flex flex-col landing-br:grid landing-br:grid-cols-2 items-center justify-center landing-br:gap-6">
         <div className="flex flex-col justify-center gap-7 w-fit items-center">
-          <h1 className="text-center landing-br:text-left text-7xl sm:text-8xl landing-br:text-7xl font-satoshi font-extrabold text-[#2d4739]">
+          <h1 className="text-center landing-br:text-left text-6xl sm:text-8xl landing-br:text-7xl font-satoshi font-extrabold text-[#2d4739]">
             Look for a <br />
             <span className="text-[#e5c687] font-extrabold">TASTY</span> Recipe
           </h1>
