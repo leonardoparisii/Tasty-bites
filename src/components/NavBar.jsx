@@ -27,12 +27,10 @@ function Navbar() {
   return (
     <div className="max-w-[1485px] w-[90%] mx-auto mt-6 flex flex-row justify-between items-center sm:mt-3 mb-10 relative z-50">
       <div className="flex gap-20">
-        <NavLink
-          to="/discover"
-          className="z-50 flex w-fit gap-20 items-center"
-        >
-          <h1 className="font-bold font-sans text-3xl text-[#e5c687] block">
-            <span className="text-[#2d4739] font-extrabold">TASTY</span>BITES
+        <NavLink to="/discover" className="z-50 flex w-fit gap-20 items-center">
+          <h1 className=" font-black font-mulish text-3xl text-[#e5c687] block">
+            <span className="text-[#2d4739]">TASTY</span>
+            BITES
           </h1>
         </NavLink>
       </div>

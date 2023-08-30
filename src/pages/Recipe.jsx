@@ -8,7 +8,7 @@ function Recipe() {
 
   const fetchDetails = async (id) => {
     const data = await fetch(
-      `https://api.spoonacular.com/recipes/${id}/information/?apiKey=634c1e814b0f4107baf9181fde33b0ec`
+      `https://api.spoonacular.com/recipes/${id}/information/?apiKey=${process.env.API_KEY}`
     );
 
     const dataDetails = await data.json();
@@ -38,12 +38,17 @@ function Recipe() {
             className="w-[750px] sm:h-[275px] md:h-[350px] lg:h-[400px] h-[225px]"
           />
           <div className="flex flex-col bg-[#fff] p-8 lg:shadow-md z-20">
-            <div className="flex items-center justify-center bg-[#f6f5f9] p-4 gap-2 font-satoshi txt-2xl font-normal">
-              {details.vegetarian ? <p>vegetarian</p> : null}
-              {details.glutenFree ? <p>gluten free</p> : null}
-              {details.dairyFree ? <p>dairy free</p> : null}
-              {details.vegan ? <p>vegan</p> : null}
-            </div>
+            {!details.vegetarian &&
+            !details.glutenFree &&
+            !details.dairyFree &&
+            !details.vegan ? null : (
+              <div className="flex items-center justify-center bg-[#f6f5f9] p-4 gap-2 font-satoshi txt-2xl font-normal">
+                {details.vegetarian ? <p>vegetarian</p> : null}
+                {details.glutenFree ? <p>gluten free</p> : null}
+                {details.dairyFree ? <p>dairy free</p> : null}
+                {details.vegan ? <p>vegan</p> : null}
+              </div>
+            )}
             <div className="flex flex-col font-satoshi gap-4 my-4 lg:pr-28">
               <p className="flex gap-1">
                 Difficulty:
@@ -67,11 +72,11 @@ function Recipe() {
               <p className="flex gap-1">
                 Cost:
                 <span className="font-medium">
-                  {/* {details.winePairing
+                  {details.winePairing
                     ? details.winePairing.productMatches.map((diocane) => {
                         diocane.price;
                       })
-                    : null} */}
+                    : null}
                 </span>
               </p>
             </div>
@@ -94,7 +99,7 @@ function Recipe() {
             <p className="text-3xl">INGREDIENTS</p>
             <div className="h-[4px] w-[40%] rounded-2xl bg-[#F9BC42]"></div>
           </div>
-          <div className="grid grid-cols-3">
+          <div className="grid grid-cols-2 gap-3">
             {details.extendedIngredients
               ? details.extendedIngredients.map((ingredient, id) => (
                   <div

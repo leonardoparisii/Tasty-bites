@@ -18,6 +18,7 @@ export default {
         'satoshi': 'Satoshi',
         'sans': 'sans-serif',
         'inter': 'Inter',
+        'mulish': 'Mulish'
       },
       screens: {
         'sm': '730px',

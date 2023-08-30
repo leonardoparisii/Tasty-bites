@@ -29,11 +29,6 @@ const LandingContent = () => {
       onclick: () => navigate(`/discover/vegan`),
       img: VeganLogo,
     },
-    // {
-    //   title: "LowCarb",
-    //   onclick: () => navigate(`/discover/LowCarb`),
-    //   img: LowCarbLogo,
-    // },
   ];
   return (
     <div className="max-w-[1485px] w-[90%] mx-auto">

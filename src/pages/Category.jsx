@@ -10,13 +10,9 @@ function CuisineType() {
   const getCategory = async (category) => {
     let apiUrl;
 
-    if (category === "LowCarb") {
-      apiUrl = `https://api.spoonacular.com/recipes/findByNutrients?minCarbs=10&maxCarbs=50&number=1`;
-    } else {
-      apiUrl = `https://api.spoonacular.com/recipes/random?apiKey=${
-        process.env.API_KEY
-      }&number=1${category === "popular" ? "" : `&tags=${category}`}`;
-    }
+    apiUrl = `https://api.spoonacular.com/recipes/random?apiKey=${
+      process.env.API_KEY
+    }&number=1${category === "popular" ? "" : `&tags=${category}`}`;
 
     const response = await fetch(apiUrl);
 

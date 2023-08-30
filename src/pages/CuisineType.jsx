@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from "react";
-import styled from "@emotion/styled";
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Card from "../components/Card";
 
@@ -11,7 +9,7 @@ function CuisineType() {
 
   const getCuisine = async (name) => {
     const data = await fetch(
-      `https://api.spoonacular.com/recipes/complexSearch?apiKey=634c1e814b0f4107baf9181fde33b0ec&number=8&cuisine=${name}`
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.API_KEY}&number=8&cuisine=${name}`
     );
     const recipes = await data.json();
     setCuisine(recipes.results);
