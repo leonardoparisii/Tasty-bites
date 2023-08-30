@@ -9,8 +9,8 @@ function Pages() {
   return (
     <>
       <Routes>
-        <Route path="*" element={<Navigate to="/popular" />} />
-        <Route path="/popular" element={<LandingContent />} />
+        <Route path="*" element={<Navigate to="/" />} />
+        <Route path="/" element={<LandingContent />} />
         <Route path="/:category" element={<LandingContent />} />
         <Route path="/cuisine/:type" element={<CuisineType />} />
         <Route path="/recipe/:id" element={<Recipe />} />
