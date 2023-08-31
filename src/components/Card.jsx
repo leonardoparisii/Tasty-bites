@@ -19,13 +19,13 @@ function Card({ recipe, search }) {
         className={`${
           search
             ? "bg-transparent items-between h-full w-full"
-            : "bg-[#fbfafa] p-5"
-        }  font-satoshi transition rounded-b-[30px] flex justify-between  flex-col`}
+            : "bg-[#fbfafa] p-6"
+        }  font-satoshi gap-2 transition rounded-b-[30px] flex justify-between  flex-col`}
       >
         <h1
           className={`text-[#222528] text-xl ${
             search ? "px-2  py-4" : ""
-          }   font-semibold w-fit`}
+          }   font-semibold w-fit line-clamp-1`}
         >
           {recipe.title}
         </h1>
@@ -40,18 +40,18 @@ function Card({ recipe, search }) {
         >
           <Link
             to={`/recipe/${recipe.id}`}
-            className={`p-2 h-fit ${
+            className={`h-fit ${
               search ? "sm:w-full w-[85%] mx-auto" : ""
-            }  flex justify-center items-center bg-[#098149] font-satoshi text-white rounded-md`}
+            }  flex justify-center items-center bg-trasparent font-satoshi text-slate-950 font-semibold rounded-md`}
           >
             View more
           </Link>
           <div
             className={`${
               search ? "hidden" : "block"
-            } font-satoshi text-base font-medium`}
+            } font-satoshi text-base font-base`}
           >
-            servings: {recipe.servings}
+            <span className="font-medium">servings:</span> {recipe.servings}
           </div>
         </div>
       </div>
