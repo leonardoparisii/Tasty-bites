@@ -15,7 +15,7 @@ const LandingContent = () => {
   const categories = [
     {
       title: "popular",
-      onclick: () => navigate(`/popular`),
+      onclick: () => navigate(`/`),
       img: popularLogo,
     },
     {

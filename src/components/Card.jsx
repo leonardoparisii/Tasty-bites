@@ -25,7 +25,7 @@ function Card({ recipe, search }) {
         <h1
           className={`text-[#222528] text-xl ${
             search ? "px-2  py-4" : ""
-          }   font-semibold w-fit line-clamp-1`}
+          }   font-semibold w-fit line-clamp-2`}
         >
           {recipe.title}
         </h1>

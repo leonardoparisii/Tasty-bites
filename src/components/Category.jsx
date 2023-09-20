@@ -28,7 +28,7 @@ function Category() {
   return (
     <div className="flex flex-col items-center my-6">
       <h1 className="text-4xl font-bold text-[#2d4739] font-satoshi m-0">
-        {params.category.charAt(0).toUpperCase() + params.category.slice(1)}
+        {params.category !== 'popular' ? params.category.charAt(0).toUpperCase() + params.category.slice(1) : 'Popular'}
       </h1>
       <div className="box-border w-fit max-w-[1485px] grid grid-cols-1 xsm:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 2xl:grid-cols-6 justify-center gap-6 mt-6">
         {data.map((recipe) => {
